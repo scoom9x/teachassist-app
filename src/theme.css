@@ -1,0 +1,276 @@
+/* Public theme API v1. Load after the base styles; imported user CSS loads last. */
+:root {
+  --ta-color-canvas: #f0f0f0;
+  --ta-color-surface: #fff;
+  --ta-color-text: #121212;
+  --ta-color-accent: #1040c0;
+  --ta-color-highlight: #f0c020;
+  --ta-color-danger: #d02020;
+  --ta-color-muted-surface: #e0e0e0;
+  --ta-font-family: "Outfit", sans-serif;
+  --ta-border-width: 2px;
+  --ta-control-radius: 0px;
+  --ta-card-radius: 0px;
+  --ta-shadow: 4px 4px 0 var(--ta-color-text);
+  --ta-shadow-large: 8px 8px 0 var(--ta-color-text);
+  --ta-space: 16px;
+  --ta-icon-stroke: 2;
+  --ta-motion-duration: 220ms;
+}
+:root[data-theme="dark"] {
+  --ta-color-canvas: #16191e;
+  --ta-color-surface: #24282f;
+  --ta-color-text: #f1f2f4;
+  --ta-color-muted-surface: #393f49;
+  --ta-color-highlight: #716019;
+  --ta-color-accent: #2559b5;
+  --ta-color-danger: #b93636;
+  --ta-shadow: 4px 4px 0 #080a0d;
+  --ta-shadow-large: 8px 8px 0 #080a0d;
+}
+:root,
+:root[data-theme="dark"] {
+  --canvas: var(--ta-color-canvas);
+  --paper: var(--ta-color-surface);
+  --ink: var(--ta-color-text);
+  --blue: var(--ta-color-accent);
+  --yellow: var(--ta-color-highlight);
+  --red: var(--ta-color-danger);
+  --muted-surface: var(--ta-color-muted-surface);
+  --line: var(--ta-border-width) solid var(--ink);
+  --hard-shadow: var(--ta-shadow);
+  --large-shadow: var(--ta-shadow-large);
+  font-family: var(--ta-font-family);
+}
+body,
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+select,
+textarea,
+.brand {
+  font-family: var(--ta-font-family);
+}
+svg.lucide {
+  stroke-width: var(--ta-icon-stroke);
+  flex-shrink: 0;
+}
+:root[data-custom-theme]:not([data-custom-theme=""])
+  :is(
+    .settings-card,
+    .course-card,
+    .dashboard-tile,
+    .trend-card,
+    .assessment-dialog
+  ) {
+  border-radius: var(--ta-card-radius);
+}
+:root[data-custom-theme]:not([data-custom-theme=""])
+  :is(button, input, select, textarea) {
+  border-radius: var(--ta-control-radius);
+}
+:root[data-custom-theme]:not([data-custom-theme=""])
+  :is(.dashboard-grid, .course-grid, .trends-grid) {
+  gap: var(--ta-space);
+}
+.brand .brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 10px;
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+summary:has(.disclosure-icon) {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  list-style: none;
+}
+summary:has(.disclosure-icon)::marker,
+summary:has(.disclosure-icon)::-webkit-details-marker {
+  display: none;
+  content: "";
+}
+.disclosure-icon {
+  transition: transform var(--ta-motion-duration) ease;
+  transform: rotate(-90deg);
+}
+details[open] > summary > .disclosure-icon {
+  transform: rotate(0);
+}
+.calendar-year-filter,
+.calendar-year-filter label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.calendar-year-filter {
+  justify-content: space-between;
+  margin: 16px 0;
+}
+.calendar-year-filter select {
+  min-width: 0;
+  max-width: 100%;
+  padding: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  border: var(--line);
+}
+.calendar-event-actions a,
+.tile-bottom > span,
+.history-direction {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.calendar-days small {
+  display: flex;
+  justify-content: center;
+}
+.dashboard-tools {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+.trends-button {
+  margin-bottom: 20px;
+}
+.trends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: var(--ta-space);
+}
+.trend-card {
+  padding: 20px;
+  background: var(--paper);
+  border: var(--line);
+  min-width: 0;
+}
+.trend-card header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.trend-card h2 {
+  font-size: 18px;
+}
+.trend-card header strong {
+  font-size: 24px;
+}
+.trend-card svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.trend-card svg.lucide {
+  width: 16px;
+  height: 16px;
+}
+.trend-card svg text {
+  font-size: 11px;
+  fill: var(--ink);
+}
+.trend-grid {
+  stroke: var(--ink);
+  opacity: 0.15;
+}
+.trend-line {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 3;
+}
+.trend-point {
+  fill: var(--blue);
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+.trend-data summary {
+  cursor: pointer;
+  font-size: 12px;
+}
+.trend-table {
+  max-height: 240px;
+  overflow: auto;
+}
+.trend-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+.trend-table :is(td, th) {
+  padding: 8px;
+  border-bottom: 1px solid var(--muted-surface);
+}
+.customization-card h2,
+.customization-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.theme-upload {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: var(--line);
+  cursor: pointer;
+  font-weight: 700;
+}
+.theme-upload input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.theme-upload:focus-within {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+.extension-slot:empty {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .disclosure-icon {
+    transition: none;
+  }
+}
+.startup-loading .brand-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+}
+.course-card .course-report-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+  text-align: left;
+  font: inherit;
+  transform: none;
+}
+.course-card .course-report-button:hover {
+  transform: none;
+  box-shadow: none;
+  background: transparent;
+}
+.course-report-button:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 6px;
+}
+.card-trends-button,
+.summary-trends-button {
+  margin-top: 16px;
+}

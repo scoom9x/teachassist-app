@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Teach Assist</string>
+    <string name="title_activity_main">Teach Assist</string>
+    <string name="package_name">ca.local.teachassist</string>
+    <string name="custom_url_scheme">ca.local.teachassist</string>
+<string name="grade_widget_description">Latest course grades and refresh time</string>
+</resources>

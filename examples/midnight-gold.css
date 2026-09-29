@@ -1,0 +1,19 @@
+/* Teach Assist theme API v1: import this file in Settings > Customization. */
+:root:root {
+  --ta-color-canvas: #151a20;
+  --ta-color-surface: #222a34;
+  --ta-color-text: #f5f0e4;
+  --ta-color-accent: #b39538;
+  --ta-color-highlight: #b39538;
+  --ta-color-danger: #c95858;
+  --ta-color-muted-surface: #384352;
+  --ta-font-family: system-ui, sans-serif;
+  --ta-border-width: 1px;
+  --ta-control-radius: 12px;
+  --ta-card-radius: 20px;
+  --ta-shadow: 0 4px 18px #0003;
+  --ta-shadow-large: 0 8px 28px #0004;
+  --ta-space: 20px;
+}
+[data-part="topbar"] { background: var(--ta-color-surface); }
+[data-part="sidebar"] { background: var(--ta-color-surface); }
